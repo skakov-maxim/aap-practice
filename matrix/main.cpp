@@ -3,7 +3,7 @@
 int** create_matrix(size_t rows, size_t cols)
 {
   int ** m = new int * [rows];
-  for (int i = 0; i < rows; i++) {
+  for (size_t i = 0; i < rows; ++i) {
     m[i] = new int[cols];
   }
   return m;
@@ -11,8 +11,8 @@ int** create_matrix(size_t rows, size_t cols)
 
 void input_matrix(int** matrix, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < cols; j++) {
+  for (size_t i = 0; i < rows; ++i) {
+    for (size_t j = 0; j < cols; ++j) {
       std::cin >> matrix[i][j];
     }
   }
@@ -20,7 +20,7 @@ void input_matrix(int** matrix, size_t rows, size_t cols)
 
 void free_matrix(int ** m, size_t rows)
 {
-  for (int i = 0; i < rows; i++) {
+  for (size_t i = 0; i < rows; ++i) {
     delete[] m[i];
   }
   delete[] m;
@@ -29,8 +29,8 @@ void free_matrix(int ** m, size_t rows)
 int** transpose_matrix(int **matrix, size_t rows, size_t cols)
 {
   int ** t = create_matrix(cols, rows);
-  for (int i = 0; i < cols; i++) {
-    for (int j = 0; j < rows; j++) {
+  for (size_t i = 0; i < cols; ++i) {
+    for (size_t j = 0; j < rows; ++j) {
       t[i][j] = matrix[j][i];
     }
   }
@@ -39,8 +39,8 @@ int** transpose_matrix(int **matrix, size_t rows, size_t cols)
 
 void print_matrix(int** matrix, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < cols; j++) {
+  for (size_t i = 0; i < rows; ++i) {
+    for (size_t j = 0; j < cols; ++j) {
       std::cout << matrix[i][j] << ' ';
     }
     std::cout << '\n';
